@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 mod hook;
 
 use eframe::egui;
