@@ -18,12 +18,16 @@ fn main() -> Result<()> {
         let instance: HINSTANCE = GetModuleHandleW(None)?.into();
         let window_class = w!("KeyboardLockClass");
 
+        // Load the icon from the embedded resource (MAINICON is usually 1)
+        let icon = LoadIconW(instance, PCWSTR(1 as *const u16)).ok();
+
         let wc = WNDCLASSW {
             lpfnWndProc: Some(wnd_proc),
             hInstance: instance,
             lpszClassName: window_class,
             hCursor: LoadCursorW(None, IDC_ARROW)?,
             hbrBackground: HBRUSH(COLOR_WINDOW.0 as *mut _),
+            hIcon: icon.unwrap_or(HICON(std::ptr::null_mut())),
             ..Default::default()
         };
 
