@@ -38,8 +38,9 @@ A helper script `compress.ps1` is provided to generate the smallest possible exe
 
 ## Technical Details
 
-- **GUI Framework:** [egui](https://github.com/emilk/egui) (via `eframe`) using the `glow` (OpenGL) backend for size efficiency.
+- **GUI Framework:** Pure **Win32 API** (no external GUI libraries like egui or fltk).
 - **System API:** [windows-rs](https://github.com/microsoft/windows-rs) for direct Win32 integration.
+- **Binary Size:** ~300KB before compression, ~80KB after UPX.
 - **Safety:** The `Ctrl+Alt+Del` sequence is handled by the Windows kernel and remains functional as a safety fallback.
 
 ## License

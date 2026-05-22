@@ -4,11 +4,12 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-eframe = { version = "0.27", default-features = false, features = ["glow", "default_fonts", "accesskit"] }
 windows = { version = "0.58", features = [
     "Win32_Foundation",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Controls",
     "Win32_System_LibraryLoader",
+    "Win32_Graphics_Gdi",
 ] }
 
 [profile.release]
